@@ -4,6 +4,10 @@ const ctrl = require('./route.ctrl')
 const { authenticate, logout } = require('../middleware/authenticate')
 const { profileUploader, productUploader, reviewUploader } = require('../middleware/aws')
 
+router.get('/', (req, res) => {
+    res.send('hello aws')
+})
+
 router.get('/user/auth', authenticate, ctrl.output.auth)
 router.get('/user/logout', logout, ctrl.output.logout)
 router.get('/user/profile', authenticate, ctrl.output.profile)
