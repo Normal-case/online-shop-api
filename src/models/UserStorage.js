@@ -92,6 +92,13 @@ class UserStorage {
             }},
             { upsert: true } // 변경사항이 있으면 변경
         )
+
+        // update user name
+        dbConnect.collection('user').update(
+            { username: body.username },
+            { $set: { name: body.nickname } },
+            { upsert: true }
+        )
         return profile
     }
 }

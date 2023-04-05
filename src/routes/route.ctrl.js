@@ -102,12 +102,6 @@ const process = {
 
     profile: async (req, res) => {
         const profile = await UserStorage.profileUpdate(req.file, req.body)
-        // if(req.file) {
-        //     // file rename
-        //     fs.rename(req.file.path, 'files/profile/' + profile.username + 'Profile.jpg', (err) => {
-        //         if(err) throw err
-        //     })
-        // }
 
         return res.status(200)
     },
@@ -117,12 +111,6 @@ const process = {
         if(!req.isAdmin) return res.status(400).json({ success: false })
         const product = new Product(req.body)
         const id = await product.create(req.files, req.user)
-
-        // if(req.files) {
-        //     for(var i=0;i<req.files.length;i++) {
-        //         fs.rename(req.files[i].path, `files/product/${id}_${i}.jpg`, (err) => {if(err) throw err})
-        //     }
-        // }
 
         return res.status(200).json({ success: true })
     },
