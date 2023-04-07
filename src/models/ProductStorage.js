@@ -29,7 +29,7 @@ class ProductStorage {
                 $or: [
                     { category: 'outer' },
                     { category: 'knit' },
-                    { category: 'tShrit' },
+                    { category: 'tShirt' },
                     { category: 'blouse' }
                 ]
             }).toArray()
